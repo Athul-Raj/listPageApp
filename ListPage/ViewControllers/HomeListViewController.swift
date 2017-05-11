@@ -26,6 +26,8 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
         
         currentPageNumber = 1
         numberOfProperties = 0
+        totalNumberOfProperties = 0
+        maximumPages = 0
         
         self.listTableView.register(UINib(nibName: "HomeListTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeListTableViewCell")
     }
@@ -60,10 +62,9 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
         //cell.takerPickUpPointLabel.text = taker.destination
         //cell.takerImage.imageFromURL(urlString: taker.photoURL!)
         
-        if indexPath.row == self.numberOfProperties - 1 {
-            if self.numberOfProperties <= totalNumberOfProperties && currentPageNumber < Int(maximumPages){
+        if indexPath.row == self.numberOfProperties - 1 && self.currentPageNumber < Int(self.maximumPages) {
+            if self.numberOfProperties <= totalNumberOfProperties{
                 currentPageNumber! += 1
-                self.totalNumberOfProperties = 21//parsedModelData?.otherParams?.totalCount
                 print("Total number of Properties:\(self.totalNumberOfProperties)")
                 self.loadProperty()
             }
@@ -88,11 +89,16 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
                 //print (responseData!)
                 let parsedModelData = Mapper<ListResponseModel>().map(JSONObject: responseData!)
                 
+                self.totalNumberOfProperties! = (parsedModelData?.otherParams?.totalCount)!
                 self.maximumPages = ceil(Float((parsedModelData?.otherParams?.totalCount)!)/Float((parsedModelData?.otherParams?.count)!))
                 
-                self.numberOfProperties! += (parsedModelData?.otherParams?.count)!
-                print("Count :\(parsedModelData?.otherParams?.count)!")
-                print("Total number of Properties Visible :\(self.numberOfProperties)")
+                if (self.currentPageNumber == Int(self.maximumPages)){
+                    self.numberOfProperties! = self.totalNumberOfProperties
+                }else{
+                    self.numberOfProperties! += (parsedModelData?.otherParams?.count)!
+                }
+                //print("Count :\(parsedModelData?.otherParams?.count)!")
+                //print("Total number of Properties Visible :\(self.numberOfProperties)")
                 self.listTableView.reloadData()
             }
         }
