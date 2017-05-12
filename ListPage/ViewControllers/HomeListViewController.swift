@@ -23,17 +23,16 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        currentPageNumber = 1
-        numberOfProperties = 0
-        totalNumberOfProperties = 0
-        maximumPages = 0
-        
         self.listTableView.register(UINib(nibName: "HomeListTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeListTableViewCell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.setupNavigationController()
+        
+        currentPageNumber = 1
+        numberOfProperties = 0
+        totalNumberOfProperties = 0
+        maximumPages = 0
         self.loadProperty()
     }
     
@@ -57,15 +56,11 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
         
         let cell:HomeListTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "HomeListTableViewCell") as? HomeListTableViewCell)!
         cell.textLabel?.text = "First Word"
-        //let taker = takerList[indexPath.row]
-        //cell.takerNameLabel.text = taker.name
-        //cell.takerPickUpPointLabel.text = taker.destination
-        //cell.takerImage.imageFromURL(urlString: taker.photoURL!)
         
         if indexPath.row == self.numberOfProperties - 1 && self.currentPageNumber < Int(self.maximumPages) {
             if self.numberOfProperties <= totalNumberOfProperties{
                 currentPageNumber! += 1
-                print("Total number of Properties:\(self.totalNumberOfProperties)")
+                //print("Total number of Properties:\(self.totalNumberOfProperties)")
                 self.loadProperty()
             }
         }
@@ -103,4 +98,14 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
             }
         }
     }
+    
+    //MARK: - Navigation Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //let viewControllerB = segue.destination as! FilterViewController
+       // viewControllerB.filterValuePassed = { message in
+         //   print (message)
+       // }
+    }
 }
+
+

@@ -23,7 +23,7 @@ class BaseViewController: UIViewController {
     
     func setupNavigationController(){
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.navigationController?.navigationBar.barTintColor = Utilities.uicolorFromHex(rgbValue: 0xfb3520)
+        self.navigationController?.navigationBar.barTintColor = Utilities.uicolorFromHex(rgbValue: UInt32(ColorHex.pinkColor))
     }
     
 

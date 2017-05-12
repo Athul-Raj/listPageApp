@@ -10,9 +10,24 @@ import UIKit
 
 class FilterViewController: UIViewController {
 
+   // var filterValuePassed: ((String) -> Void)!
+
+    @IBOutlet weak var b: RadioButton!
+    @IBOutlet weak var a: RadioButton!
+    @IBOutlet weak var c: RadioButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(true)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,7 +38,16 @@ class FilterViewController: UIViewController {
     //MARK: Button Actions
     
     @IBAction func closeFilterViewTapped(_ sender: Any) {
+        //filterValuePassed(filters!)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        
+        b.isSelected = false
+        a.isSelected = false
+        c.isSelected = false
+        
     }
 
     /*

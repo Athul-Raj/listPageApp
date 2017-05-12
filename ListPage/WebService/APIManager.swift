@@ -14,6 +14,8 @@ class APIManager: NSObject {
     
     static func fetchAllRooms(with pagenumber:String, completion: @escaping ([String:Any]?) -> Void) {
         Alamofire.request(
+            
+            
             URL(string: "http://www.nobroker.in/api/v1/property/filter/region/ChIJLfyY2E4UrjsRVq4AjI7zgRY/?lat_lng=12.9279232,77.6271078&rent=0,500000&travelTime=30&pageNo=\(pagenumber)")!,
             method: .get,
             parameters: ["include_docs": "true"])
