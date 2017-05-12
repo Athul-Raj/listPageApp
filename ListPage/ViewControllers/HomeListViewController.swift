@@ -14,10 +14,12 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var listTableView: UITableView!
     
     var currentPageNumber: Int!
-    //var numberof
     var numberOfProperties: Int!
     var totalNumberOfProperties: Int!
     var maximumPages: Float!
+    
+    var filterURL = ""
+    
     
     var navigationSubView = CustomNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: 320.0 , height: 75))
 
@@ -28,12 +30,7 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
 
     override func viewWillAppear(_ animated: Bool) {
         self.setupNavigationController()
-        
-        currentPageNumber = 1
-        numberOfProperties = 0
-        totalNumberOfProperties = 0
-        maximumPages = 0
-        self.loadProperty()
+        self.InitialSetUp()
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,7 +74,7 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
     //MARK: - Local Mrthods
     func loadProperty(){
         print("Current page number:\(currentPageNumber)")
-        APIManager.fetchAllRooms(with: "\(currentPageNumber)") { (responseData: [String:Any]?) in
+        APIManager.fetchAllRooms(with: "\(currentPageNumber)", and: filterURL) { (responseData: [String:Any]?) in
             if responseData == nil{
                 
             }else{
@@ -92,19 +89,27 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
                 }else{
                     self.numberOfProperties! += (parsedModelData?.otherParams?.count)!
                 }
-                //print("Count :\(parsedModelData?.otherParams?.count)!")
-                //print("Total number of Properties Visible :\(self.numberOfProperties)")
                 self.listTableView.reloadData()
             }
         }
     }
     
+    func InitialSetUp(){
+        currentPageNumber = 1
+        numberOfProperties = 0
+        totalNumberOfProperties = 0
+        maximumPages = 0
+        self.loadProperty()
+    }
+    
     //MARK: - Navigation Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //let viewControllerB = segue.destination as! FilterViewController
-       // viewControllerB.filterValuePassed = { message in
-         //   print (message)
-       // }
+        let viewControllerB = segue.destination as! FilterViewController
+        viewControllerB.filterValuePassed = { message in
+            print (message)
+            self.filterURL = message
+            self.InitialSetUp()
+        }
     }
 }
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E22605438622FB9BECC2357 /* Pods_ListPage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E863BF5BEEC2B436BDBF793 /* Pods_ListPage.framework */; };
 		C46D8E601EC329DA00264327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D8E5F1EC329DA00264327 /* AppDelegate.swift */; };
-		C46D8E621EC329DA00264327 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D8E611EC329DA00264327 /* ViewController.swift */; };
 		C46D8E651EC329DA00264327 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46D8E631EC329DA00264327 /* Main.storyboard */; };
 		C46D8E671EC329DA00264327 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C46D8E661EC329DA00264327 /* Assets.xcassets */; };
 		C46D8E6A1EC329DA00264327 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46D8E681EC329DA00264327 /* LaunchScreen.storyboard */; };
@@ -41,7 +40,6 @@
 		A1F4997542617E8F7EEF6CF4 /* Pods-ListPage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ListPage.release.xcconfig"; path = "Pods/Target Support Files/Pods-ListPage/Pods-ListPage.release.xcconfig"; sourceTree = "<group>"; };
 		C46D8E5C1EC329D900264327 /* ListPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46D8E5F1EC329DA00264327 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C46D8E611EC329DA00264327 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C46D8E641EC329DA00264327 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C46D8E661EC329DA00264327 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C46D8E691EC329DA00264327 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,13 +110,12 @@
 			isa = PBXGroup;
 			children = (
 				C46D8E5F1EC329DA00264327 /* AppDelegate.swift */,
-				C46D8E611EC329DA00264327 /* ViewController.swift */,
 				C46D8E731EC3397000264327 /* ViewControllers */,
 				C46D8E751EC3397000264327 /* Views */,
 				C46D8E961EC35C2B00264327 /* WebService */,
 				C46D8E631EC329DA00264327 /* Main.storyboard */,
-				C46D8E661EC329DA00264327 /* Assets.xcassets */,
 				C46D8E681EC329DA00264327 /* LaunchScreen.storyboard */,
+				C46D8E661EC329DA00264327 /* Assets.xcassets */,
 				C46D8E6B1EC329DA00264327 /* Info.plist */,
 			);
 			path = ListPage;
@@ -318,7 +315,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4C4BB43DBE14B92551419345 /* [CP] Copy Pods Resources */ = {
@@ -358,7 +355,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C46D8E621EC329DA00264327 /* ViewController.swift in Sources */,
 				C46D8E601EC329DA00264327 /* AppDelegate.swift in Sources */,
 				C46D8E981EC42F3A00264327 /* APIManager.swift in Sources */,
 				C46D8E861EC353EA00264327 /* Utilities.swift in Sources */,

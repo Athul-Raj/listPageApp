@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f7X-FI-fpX">
-    <device id="retina4_7" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f7X-FI-fpX">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,6 +13,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Brix Sans Bold.ttf">
+            <string>BrixSansBold</string>
+        </array>
         <array key="Brix Sans ExtraLight.ttf">
             <string>BrixSansExtraLight</string>
         </array>
@@ -27,11 +30,11 @@
                         <viewControllerLayoutGuide type="bottom" id="7Op-2t-WHY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HaO-wB-2PY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRm-dZ-RyQ">
-                                <rect key="frame" x="0.0" y="303.5" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="338" width="414" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="pCE-am-LoT"/>
                                 </constraints>
@@ -64,11 +67,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bwI-xw-ZOw">
-                                <rect key="frame" x="0.0" y="0.5" width="375" height="666.5"/>
+                                <rect key="frame" x="0.0" y="0.66666666666668561" width="414" height="735.33333333333326"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="aYe-nH-B54"/>
@@ -76,7 +79,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1M-rv-EOj">
-                                <rect key="frame" x="289" y="597" width="45" height="45"/>
+                                <rect key="frame" x="324" y="666" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="LhW-y3-vOJ"/>
                                     <constraint firstAttribute="width" secondItem="h1M-rv-EOj" secondAttribute="height" multiplier="1:1" id="wGk-ac-Ptx"/>
@@ -116,59 +119,14 @@
                         <viewControllerLayoutGuide type="bottom" id="vxk-Yi-D9w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eD5-K5-1pq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWd-bi-9wc">
-                                <rect key="frame" x="164" y="309" width="46" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="VNv-Qi-xP8"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="closeFilterViewTapped:" destination="WWn-TY-ZzM" eventType="touchUpInside" id="Qi7-yy-5g6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itc-1i-Ied" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
-                                <rect key="frame" x="120" y="197" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ky2-MY-OdS" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
-                                <rect key="frame" x="57" y="261" width="262.5" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eU-ns-MdL" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
-                                <rect key="frame" x="39" y="197" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mze-JC-TLl">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNc-BF-WPa">
-                                        <rect key="frame" x="16" y="12" width="35" height="35"/>
+                                        <rect key="frame" x="16" y="17" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tNc-BF-WPa" secondAttribute="height" multiplier="1:1" id="HeL-mJ-3aE"/>
                                             <constraint firstAttribute="width" constant="35" id="Leo-IY-nsk"/>
@@ -178,36 +136,330 @@
                                             <action selector="refresh:" destination="WWn-TY-ZzM" eventType="touchUpInside" id="U3d-TG-ZDN"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26R-LP-6Vk">
+                                        <rect key="frame" x="363" y="17" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="26R-LP-6Vk" secondAttribute="height" multiplier="1:1" id="18A-Yo-oLG"/>
+                                            <constraint firstAttribute="width" constant="35" id="BUX-1Z-WPa"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="closeFilterViewTapped:" destination="WWn-TY-ZzM" eventType="touchUpInside" id="IDo-hT-oO9"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTER BY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YS1-7M-McZ">
+                                        <rect key="frame" x="164" y="24.666666666666664" width="87" height="19.999999999999993"/>
+                                        <fontDescription key="fontDescription" name="BrixSansBold" family="BrixSansBold" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="26R-LP-6Vk" firstAttribute="centerY" secondItem="tNc-BF-WPa" secondAttribute="centerY" id="6zq-dT-iG3"/>
+                                    <constraint firstItem="26R-LP-6Vk" firstAttribute="width" secondItem="26R-LP-6Vk" secondAttribute="height" multiplier="1:1" id="YBS-Ga-2rL"/>
                                     <constraint firstItem="tNc-BF-WPa" firstAttribute="leading" secondItem="mze-JC-TLl" secondAttribute="leading" constant="16" id="bFJ-HY-d7b"/>
-                                    <constraint firstAttribute="bottom" secondItem="tNc-BF-WPa" secondAttribute="bottom" constant="13" id="iQU-NW-H0I"/>
+                                    <constraint firstItem="YS1-7M-McZ" firstAttribute="centerY" secondItem="tNc-BF-WPa" secondAttribute="centerY" id="dIi-K6-dcp"/>
+                                    <constraint firstAttribute="bottom" secondItem="tNc-BF-WPa" secondAttribute="bottom" constant="8" id="iQU-NW-H0I"/>
+                                    <constraint firstItem="YS1-7M-McZ" firstAttribute="centerX" secondItem="mze-JC-TLl" secondAttribute="centerX" id="lfF-nV-9IR"/>
+                                    <constraint firstAttribute="trailing" secondItem="26R-LP-6Vk" secondAttribute="trailing" constant="16" id="tEP-V3-8fQ"/>
                                     <constraint firstAttribute="height" constant="60" id="v7R-AW-OaI"/>
                                 </constraints>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crc-dE-pgG">
+                                <rect key="frame" x="0.0" y="60" width="414" height="676"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMj-aA-mCB">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apartment Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-dp-b7u">
+                                                <rect key="frame" x="16" y="60" width="382" height="17"/>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auk-wR-nRH" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="74" y="87" width="50" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="amX-qa-Mvz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="1 BHK">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlV-Mk-946" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="134" y="87" width="53" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="53" id="E5u-Ga-t7b"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="2 BHK">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZB-kf-U6a" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="197" y="87" width="51" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="51" id="lt5-A6-chh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="3 BHK">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZM-UV-YTC" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="258" y="87" width="52" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="52" id="c0X-XA-2KV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="4 BHK">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgU-za-6WW" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="132" width="60" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="NNI-tw-sg9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="4+ BHK">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Property Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPy-hw-yzZ">
+                                                <rect key="frame" x="16" y="183" width="382" height="17"/>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="938-xY-7fA" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="210" width="85" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="85" id="OMG-2S-r81"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Apartment">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sP2-Kh-AEb" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="111" y="210" width="155" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="155" id="9MF-4u-d0O"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Independent House/Villa">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSt-Rw-xQc" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="255" width="185" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="185" id="RD3-Th-cl4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Independent Floor/Builder Floor">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Furniture Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYf-id-0A3">
+                                                <rect key="frame" x="16" y="306" width="382" height="17"/>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znT-oh-dN7" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="340" width="85" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="85" id="i8O-1M-Qem"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Furnished">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyh-hU-7bL" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="111" y="340" width="110" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="Zwe-sa-wDC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Semi Furnished">
+                                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgc-DG-qU5" customClass="RadioButton" customModule="ListPage" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="87" width="48" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="O0B-vj-Egr"/>
+                                                    <constraint firstAttribute="width" constant="48" id="iHS-dP-l3w"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="13"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="1 RK">
+                                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="800" id="0cb-2B-zkm"/>
+                                            <constraint firstItem="auk-wR-nRH" firstAttribute="leading" secondItem="Mgc-DG-qU5" secondAttribute="trailing" constant="10" id="0co-7k-JGf"/>
+                                            <constraint firstItem="znT-oh-dN7" firstAttribute="leading" secondItem="uYf-id-0A3" secondAttribute="leading" id="2cB-ij-bC5"/>
+                                            <constraint firstItem="xZM-UV-YTC" firstAttribute="height" secondItem="Mgc-DG-qU5" secondAttribute="height" id="3cu-I2-SXZ"/>
+                                            <constraint firstItem="938-xY-7fA" firstAttribute="leading" secondItem="LPy-hw-yzZ" secondAttribute="leading" id="42H-63-ZTf"/>
+                                            <constraint firstItem="AlV-Mk-946" firstAttribute="top" secondItem="eY1-dp-b7u" secondAttribute="bottom" constant="10" id="5fr-Cg-djZ"/>
+                                            <constraint firstItem="sP2-Kh-AEb" firstAttribute="centerY" secondItem="938-xY-7fA" secondAttribute="centerY" id="6nd-H8-cCE"/>
+                                            <constraint firstItem="znT-oh-dN7" firstAttribute="height" secondItem="938-xY-7fA" secondAttribute="height" id="8da-s3-Cdg"/>
+                                            <constraint firstItem="KSt-Rw-xQc" firstAttribute="height" secondItem="938-xY-7fA" secondAttribute="height" id="9r3-aR-ebY"/>
+                                            <constraint firstItem="AgU-za-6WW" firstAttribute="leading" secondItem="eY1-dp-b7u" secondAttribute="leading" id="BKE-A4-Du8"/>
+                                            <constraint firstItem="uYf-id-0A3" firstAttribute="trailing" secondItem="eY1-dp-b7u" secondAttribute="trailing" id="Bzg-TQ-AWO"/>
+                                            <constraint firstItem="xZM-UV-YTC" firstAttribute="centerY" secondItem="AlV-Mk-946" secondAttribute="centerY" id="Epa-Eg-Puk"/>
+                                            <constraint firstItem="uYf-id-0A3" firstAttribute="leading" secondItem="eY1-dp-b7u" secondAttribute="leading" id="FJ7-DM-jLl"/>
+                                            <constraint firstItem="Gyh-hU-7bL" firstAttribute="centerY" secondItem="znT-oh-dN7" secondAttribute="centerY" id="HTf-dh-4Lb"/>
+                                            <constraint firstItem="AgU-za-6WW" firstAttribute="top" secondItem="Mgc-DG-qU5" secondAttribute="bottom" constant="10" id="IOT-g5-0d2"/>
+                                            <constraint firstItem="Mgc-DG-qU5" firstAttribute="leading" secondItem="IMj-aA-mCB" secondAttribute="leading" constant="16" id="Ifl-8G-P1N"/>
+                                            <constraint firstItem="xZM-UV-YTC" firstAttribute="leading" secondItem="RZB-kf-U6a" secondAttribute="trailing" constant="10" id="JVl-GJ-9mk"/>
+                                            <constraint firstItem="AgU-za-6WW" firstAttribute="height" secondItem="Mgc-DG-qU5" secondAttribute="height" id="JfS-jW-Eq2"/>
+                                            <constraint firstItem="AlV-Mk-946" firstAttribute="height" secondItem="Mgc-DG-qU5" secondAttribute="height" id="LDW-0r-mcn"/>
+                                            <constraint firstItem="Gyh-hU-7bL" firstAttribute="height" secondItem="znT-oh-dN7" secondAttribute="height" id="M4y-QV-wqa"/>
+                                            <constraint firstItem="sP2-Kh-AEb" firstAttribute="leading" secondItem="938-xY-7fA" secondAttribute="trailing" constant="10" id="M60-hn-yCD"/>
+                                            <constraint firstItem="RZB-kf-U6a" firstAttribute="centerY" secondItem="AlV-Mk-946" secondAttribute="centerY" id="MT6-si-juC"/>
+                                            <constraint firstItem="auk-wR-nRH" firstAttribute="centerY" secondItem="AlV-Mk-946" secondAttribute="centerY" id="NW8-BN-7rq"/>
+                                            <constraint firstItem="938-xY-7fA" firstAttribute="height" secondItem="Mgc-DG-qU5" secondAttribute="height" id="PPO-OZ-CBw"/>
+                                            <constraint firstItem="AlV-Mk-946" firstAttribute="leading" secondItem="auk-wR-nRH" secondAttribute="trailing" constant="10" id="SoK-Cy-iJ1"/>
+                                            <constraint firstItem="938-xY-7fA" firstAttribute="top" secondItem="LPy-hw-yzZ" secondAttribute="bottom" constant="10" id="Zeu-p6-OyS"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sP2-Kh-AEb" secondAttribute="trailing" constant="16" id="aR7-aE-xIi"/>
+                                            <constraint firstItem="Mgc-DG-qU5" firstAttribute="centerY" secondItem="AlV-Mk-946" secondAttribute="centerY" id="abn-va-0em"/>
+                                            <constraint firstItem="RZB-kf-U6a" firstAttribute="leading" secondItem="AlV-Mk-946" secondAttribute="trailing" constant="10" id="fGI-ff-pKz"/>
+                                            <constraint firstItem="znT-oh-dN7" firstAttribute="top" secondItem="uYf-id-0A3" secondAttribute="bottom" constant="17" id="fZP-Ir-fDc"/>
+                                            <constraint firstItem="auk-wR-nRH" firstAttribute="height" secondItem="Mgc-DG-qU5" secondAttribute="height" id="gRS-fm-FAa"/>
+                                            <constraint firstItem="LPy-hw-yzZ" firstAttribute="top" secondItem="AgU-za-6WW" secondAttribute="bottom" constant="16" id="i3K-3f-flM"/>
+                                            <constraint firstItem="eY1-dp-b7u" firstAttribute="top" secondItem="IMj-aA-mCB" secondAttribute="top" constant="60" id="iyQ-54-tdj"/>
+                                            <constraint firstItem="Gyh-hU-7bL" firstAttribute="leading" secondItem="znT-oh-dN7" secondAttribute="trailing" constant="10" id="noS-cF-PPJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="eY1-dp-b7u" secondAttribute="trailing" constant="16" id="oOT-CJ-7aK"/>
+                                            <constraint firstItem="RZB-kf-U6a" firstAttribute="height" secondItem="Mgc-DG-qU5" secondAttribute="height" id="pHR-rD-gAY"/>
+                                            <constraint firstItem="KSt-Rw-xQc" firstAttribute="leading" secondItem="938-xY-7fA" secondAttribute="leading" id="pdo-S9-glg"/>
+                                            <constraint firstItem="uYf-id-0A3" firstAttribute="top" secondItem="KSt-Rw-xQc" secondAttribute="bottom" constant="16" id="pia-SK-kCW"/>
+                                            <constraint firstItem="LPy-hw-yzZ" firstAttribute="leading" secondItem="eY1-dp-b7u" secondAttribute="leading" id="uLp-0z-UUW"/>
+                                            <constraint firstItem="KSt-Rw-xQc" firstAttribute="top" secondItem="938-xY-7fA" secondAttribute="bottom" constant="10" id="uzB-k4-q5T"/>
+                                            <constraint firstItem="eY1-dp-b7u" firstAttribute="leading" secondItem="IMj-aA-mCB" secondAttribute="leading" constant="16" id="wmB-mE-o1w"/>
+                                            <constraint firstItem="sP2-Kh-AEb" firstAttribute="height" secondItem="938-xY-7fA" secondAttribute="height" id="xkW-UI-PJe"/>
+                                            <constraint firstItem="LPy-hw-yzZ" firstAttribute="trailing" secondItem="eY1-dp-b7u" secondAttribute="trailing" id="yRh-eM-Ejt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IMj-aA-mCB" firstAttribute="leading" secondItem="Crc-dE-pgG" secondAttribute="leading" id="2sC-Qt-BUQ"/>
+                                    <constraint firstItem="IMj-aA-mCB" firstAttribute="top" secondItem="Crc-dE-pgG" secondAttribute="top" id="7qf-n4-2A9"/>
+                                    <constraint firstAttribute="bottom" secondItem="IMj-aA-mCB" secondAttribute="bottom" id="G6L-r6-ccE"/>
+                                    <constraint firstAttribute="trailing" secondItem="IMj-aA-mCB" secondAttribute="trailing" constant="-43" id="rHY-ww-25d"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KG2-Bk-kYe">
+                                <rect key="frame" x="0.0" y="691" width="414" height="45"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Zdh-y7-z0c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BrixSansBold" family="BrixSansBold" pointSize="20"/>
+                                <state key="normal" title="Apply">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="applyButtonTapped:" destination="WWn-TY-ZzM" eventType="touchUpInside" id="EQl-qf-9CL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mze-JC-TLl" firstAttribute="firstBaseline" secondItem="N8R-Kt-q6X" secondAttribute="bottom" multiplier="0.001" id="0dP-1u-XQC"/>
-                            <constraint firstItem="Ky2-MY-OdS" firstAttribute="centerX" secondItem="eD5-K5-1pq" secondAttribute="centerX" id="BtE-Ax-xsN"/>
-                            <constraint firstItem="yWd-bi-9wc" firstAttribute="top" secondItem="Ky2-MY-OdS" secondAttribute="bottom" constant="18" id="Cyb-gl-kqE"/>
-                            <constraint firstItem="Ky2-MY-OdS" firstAttribute="width" secondItem="eD5-K5-1pq" secondAttribute="width" multiplier="0.7" id="Fcy-fc-1YD"/>
-                            <constraint firstItem="yWd-bi-9wc" firstAttribute="centerX" secondItem="eD5-K5-1pq" secondAttribute="centerX" id="dDj-My-rgA"/>
+                            <constraint firstItem="vxk-Yi-D9w" firstAttribute="top" secondItem="KG2-Bk-kYe" secondAttribute="bottom" id="6Fw-ZF-vNM"/>
+                            <constraint firstItem="KG2-Bk-kYe" firstAttribute="centerX" secondItem="eD5-K5-1pq" secondAttribute="centerX" id="Joe-X6-NRJ"/>
+                            <constraint firstItem="KG2-Bk-kYe" firstAttribute="width" secondItem="Crc-dE-pgG" secondAttribute="width" id="KfF-za-Tlv"/>
+                            <constraint firstItem="Crc-dE-pgG" firstAttribute="leading" secondItem="eD5-K5-1pq" secondAttribute="leading" id="Nsk-LN-uIb"/>
+                            <constraint firstItem="Crc-dE-pgG" firstAttribute="trailing" secondItem="eD5-K5-1pq" secondAttribute="trailing" id="QG2-di-1se"/>
+                            <constraint firstItem="Crc-dE-pgG" firstAttribute="top" secondItem="mze-JC-TLl" secondAttribute="bottom" id="VI9-5R-Png"/>
+                            <constraint firstItem="mze-JC-TLl" firstAttribute="firstBaseline" secondItem="N8R-Kt-q6X" secondAttribute="bottom" multiplier="0.001" id="biG-Yh-NYY"/>
+                            <constraint firstItem="vxk-Yi-D9w" firstAttribute="top" secondItem="Crc-dE-pgG" secondAttribute="bottom" id="fa7-WR-axK"/>
                             <constraint firstItem="mze-JC-TLl" firstAttribute="leading" secondItem="eD5-K5-1pq" secondAttribute="leading" id="hlb-Ed-FSm"/>
                             <constraint firstItem="mze-JC-TLl" firstAttribute="width" secondItem="eD5-K5-1pq" secondAttribute="width" id="pWE-IF-Tfa"/>
-                            <constraint firstItem="yWd-bi-9wc" firstAttribute="centerY" secondItem="eD5-K5-1pq" secondAttribute="centerY" id="x94-GA-YNf"/>
+                            <constraint firstItem="IMj-aA-mCB" firstAttribute="centerX" secondItem="eD5-K5-1pq" secondAttribute="centerX" id="yc5-g6-Y6o"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="a" destination="Itc-1i-Ied" id="Amw-ux-Rja"/>
-                        <outlet property="b" destination="Ky2-MY-OdS" id="ge4-ae-Ejc"/>
-                        <outlet property="c" destination="4eU-ns-MdL" id="Z63-xi-2EI"/>
+                        <outlet property="appartmentButton" destination="938-xY-7fA" id="IWb-IW-4ql"/>
+                        <outlet property="applyButton" destination="KG2-Bk-kYe" id="Ct1-iX-rWu"/>
+                        <outlet property="fourBhkButton" destination="xZM-UV-YTC" id="SIl-gv-4C5"/>
+                        <outlet property="fourPlusBHKButton" destination="AgU-za-6WW" id="0LF-Am-nHG"/>
+                        <outlet property="furnishedButton" destination="znT-oh-dN7" id="Kya-eD-KNo"/>
+                        <outlet property="individualFloorButton" destination="KSt-Rw-xQc" id="M2c-E2-zof"/>
+                        <outlet property="individualHouseButton" destination="sP2-Kh-AEb" id="PRT-5B-hJX"/>
+                        <outlet property="oneBhkButton" destination="auk-wR-nRH" id="40V-Jm-F7F"/>
+                        <outlet property="oneRkButton" destination="Mgc-DG-qU5" id="Ddd-b0-gln"/>
+                        <outlet property="semiFurnishedButton" destination="Gyh-hU-7bL" id="NaL-JM-9ff"/>
+                        <outlet property="threeBhkButton" destination="RZB-kf-U6a" id="KvT-o7-55w"/>
+                        <outlet property="twoBhkButton" destination="AlV-Mk-946" id="goN-bX-lsD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysO-xl-6UT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2341.5999999999999" y="216.34182908545728"/>
+            <point key="canvasLocation" x="2339.130434782609" y="216.03260869565219"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e01-D5-X18">
