@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class FilterViewController: UIViewController {
     @IBOutlet var applyButton: UIButton!
@@ -50,12 +51,8 @@ class FilterViewController: UIViewController {
     //MARK:- Button Actions
     
     @IBAction func applyButtonTapped(_ sender: Any) {
-        
-        let filterURL = getURLSubpartforBHK() + getURLSubpartforAppartment() + getURLSubpartforFurniture()
-        filterValuePassed(filterURL)
+        self.loadProper()
         self.refresh(sender)
-        self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func closeFilterViewTapped(_ sender: Any) {
@@ -172,6 +169,38 @@ class FilterViewController: UIViewController {
                 }
             }
             return furniURLSub
+        }
+    }
+    
+    
+    func loadProper(){
+        
+        let filterURL = getURLSubpartforBHK() + getURLSubpartforAppartment() + getURLSubpartforFurniture()
+        APIManager.fetchAllRooms(with: "1", and: filterURL) { (responseData: [String:Any]?) in
+            if responseData == nil{
+                
+            }else{
+                //print (responseData!)
+                let parsedModelData = Mapper<ListResponseModel>().map(JSONObject: responseData!)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                
+                let objectRefHomeListVC:HomeListViewController = appDelegate.nav!.viewControllers.last as! HomeListViewController
+                
+                objectRefHomeListVC.modelDataArray = (parsedModelData?.dataArray)!
+                
+                objectRefHomeListVC.totalNumberOfProperties! = (parsedModelData?.otherParams?.totalCount)!
+                objectRefHomeListVC.maximumPages = ceil(Float((parsedModelData?.otherParams?.totalCount)!)/Float((parsedModelData?.otherParams?.count)!))
+                
+                if (1 == Int(objectRefHomeListVC.maximumPages)){
+                    objectRefHomeListVC.numberOfProperties! = objectRefHomeListVC.totalNumberOfProperties
+                }else{
+                    objectRefHomeListVC.numberOfProperties! += (parsedModelData?.otherParams?.count)!
+                }
+                self.filterValuePassed(filterURL)
+                self.dismiss(animated: true, completion: nil)
+                
+                //self.listTableView.reloadInputViews()
+            }
         }
     }
     

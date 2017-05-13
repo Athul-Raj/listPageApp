@@ -13,10 +13,11 @@ import Alamofire
 class APIManager: NSObject {
 
     
-    static func fetchAllRooms(with pagenumber:String, and filter:String, completion: @escaping ([String:Any]?) -> Void) {
+    static func fetchAllRooms(with pagenumber:String!, and filter:String, completion: @escaping ([String:Any]?) -> Void) {
+        print(API.listFetchBaseURL+"\(pagenumber!)" + filter)
         Alamofire.request(
             
-            URL(string: API.listFetchBaseURL+"\(pagenumber)" + filter)!,
+            URL(string: API.listFetchBaseURL+"\(pagenumber!)" + filter)!,
             method: .get,
             parameters: ["include_docs": "true"])
             .validate()
@@ -34,7 +35,7 @@ class APIManager: NSObject {
                     return
                 }
 
-                print(value["status"]!)
+                //print(value["data"]!)
                 completion(value)
         }
     }

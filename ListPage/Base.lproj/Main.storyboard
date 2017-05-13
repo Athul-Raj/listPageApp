@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +23,7 @@
         <!--Home View Controller-->
         <scene sceneID="h6w-fO-Dmx">
             <objects>
-                <viewController id="U7u-2u-LTd" customClass="HomeViewController" customModule="ListPage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="U7u-2u-LTd" customClass="HomeViewController" customModule="ListPage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lv9-Qw-8Gi"/>
                         <viewControllerLayoutGuide type="bottom" id="7Op-2t-WHY"/>
@@ -79,14 +78,15 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="4KP-3t-7Sz"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1M-rv-EOj">
-                                <rect key="frame" x="324" y="666" width="45" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1M-rv-EOj">
+                                <rect key="frame" x="344" y="666" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="LhW-y3-vOJ"/>
                                     <constraint firstAttribute="width" secondItem="h1M-rv-EOj" secondAttribute="height" multiplier="1:1" id="wGk-ac-Ptx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="BrixSansExtraLight" family="BrixSansExtraLight" pointSize="17"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="filterIcon">
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="WWn-TY-ZzM" kind="presentation" id="0i7-MT-aGg"/>
                                 </connections>
@@ -97,7 +97,7 @@
                             <constraint firstItem="bwI-xw-ZOw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3he-MC-Nqp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h1M-rv-EOj" secondAttribute="bottom" constant="25" id="6H5-Za-QL3"/>
                             <constraint firstItem="bwI-xw-ZOw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="7Pf-Bu-Q3S"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="h1M-rv-EOj" secondAttribute="trailing" constant="25" id="DAb-qf-38q"/>
+                            <constraint firstAttribute="trailing" secondItem="h1M-rv-EOj" secondAttribute="trailing" constant="25" id="DAb-qf-38q"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bwI-xw-ZOw" secondAttribute="bottom" id="W3o-g2-mYU"/>
                             <constraint firstItem="bwI-xw-ZOw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" multiplier="0.01" id="bBY-eN-Uji"/>
                         </constraints>
@@ -465,9 +465,9 @@
         <!--Navigation Controller-->
         <scene sceneID="e01-D5-X18">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f7X-FI-fpX" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ß" automaticallyAdjustsScrollViewInsets="NO" id="f7X-FI-fpX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ovr-xg-WcX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ovr-xg-WcX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -481,4 +481,7 @@
             <point key="canvasLocation" x="512.79999999999995" y="-519.49025487256381"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="filterIcon" width="42" height="42"/>
+    </resources>
 </document>

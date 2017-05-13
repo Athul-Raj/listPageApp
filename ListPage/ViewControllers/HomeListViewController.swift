@@ -8,12 +8,13 @@
 
 import UIKit
 import ObjectMapper
+import SDWebImage
 
 class HomeListViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var listTableView: UITableView!
     
-    var currentPageNumber: Int!
+    var currentPageNumber: Int! = 0
     var numberOfProperties: Int!
     var totalNumberOfProperties: Int!
     var maximumPages: Float!
@@ -69,59 +70,38 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
         
         
         let allPhoto = propertyModel.propertyAllImages!
-        for i in (0...allPhoto.count - 1){
-            if allPhoto[i].displayPic{
-                
-                var urlFilterForImage = allPhoto[i].imagesMap?.original!
-                if let range = urlFilterForImage?.range(of: "_") {
-                    let firstPart = urlFilterForImage?[(urlFilterForImage?.startIndex)!..<range.lowerBound]
-                    urlFilterForImage = firstPart! + "/" + urlFilterForImage!
-                    print(urlFilterForImage!) // print Hello
-                }
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                let url = URL(string: (API.imageFetchBaseURL + urlFilterForImage!))
-                DispatchQueue.global().async {
-                    do{
-                        let data = try Data(contentsOf: url!)
-                        DispatchQueue.main.async {
-                            cell.propertyImage.image = UIImage(data: data)
-                            
-                        }
-                    }catch{
-                      //  break
+        if allPhoto.count > 0{
+            for i in (0...allPhoto.count - 1){
+                if allPhoto[i].displayPic{
+                    var urlFilterForImage = allPhoto[i].imagesMap?.thumbnail!
+                    if let range = urlFilterForImage?.range(of: "_") {
+                        let firstPart = urlFilterForImage?[(urlFilterForImage?.startIndex)!..<range.lowerBound]
+                        urlFilterForImage = firstPart! + "/" + urlFilterForImage!
                     }
+
+                    
+                    let url = URL(string: (API.imageFetchBaseURL + urlFilterForImage!))
+                    //DispatchQueue.global().async {
+                        do{
+                            let data = try Data(contentsOf: url!)
+                            //DispatchQueue.main.async {
+                                //cell.propertyImage.
+                                //cell.propertyImage.image = UIImage(data: data)
+                                
+                                cell.propertyImage.sd_setImage(with: url, placeholderImage: UIImage(named: "noImageIcon"))
+
+                            //}
+                        }catch{
+                            //  break
+                        //}
+                    }
+                    break
+                }else{
+                    cell.propertyImage.image = UIImage(named:"noImageIcon");
                 }
-                break
             }
         }
         
-        /*
-         
-         
-         If key of image is ff8081815848207b01584832ea1d012c_76516_original then you have to access image like
-         
-         
-         http://d3snwcirvb4r88.cloudfront.net/images/ff8081815848207b01584832ea1d012c/ff8081815848207b01584832ea1d012c_76516_original.jpg
-        let url = URL(string: modelDataArray[indexPath.row].)
-        
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            DispatchQueue.main.async {
-                imageView.image = UIImage(data: data!)
-            }
-        }*/
-        //cell.imageView?.image = UIImage
-        
-        print(indexPath.row)
         if indexPath.row == self.numberOfProperties - 1 && self.currentPageNumber < Int(self.maximumPages) {
             if self.numberOfProperties <= totalNumberOfProperties{
                 currentPageNumber! += 1
@@ -141,8 +121,7 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     //MARK: - Local Methods
     func loadProperty(){
-        print("Current page number:\(currentPageNumber)")
-        APIManager.fetchAllRooms(with: "\(currentPageNumber)", and: filterURL) { (responseData: [String:Any]?) in
+        APIManager.fetchAllRooms(with: "\(currentPageNumber!)", and: filterURL) { (responseData: [String:Any]?) in
             if responseData == nil{
                 
             }else{
@@ -159,17 +138,21 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
                 }else{
                     self.numberOfProperties! += (parsedModelData?.otherParams?.count)!
                 }
-                self.listTableView.reloadData()
+                DispatchQueue.main.async{
+                    self.listTableView.reloadData()
+                }
+                //self.listTableView.reloadInputViews()
             }
         }
     }
     
     func InitialSetUp(){
+        self.loadProperty()
+        listTableView.setContentOffset(CGPoint.zero, animated: false)
         currentPageNumber = 1
         numberOfProperties = 0
         totalNumberOfProperties = 0
         maximumPages = 0
-        self.loadProperty()
     }
     
     //MARK: - Navigation Methods
@@ -178,9 +161,8 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
         viewControllerB.filterValuePassed = { message in
             print (message)
             self.filterURL = message
-            self.InitialSetUp()
+            self.loadProperty()
+            //self.InitialSetUp()
         }
     }
 }
-
-

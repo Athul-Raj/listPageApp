@@ -9,4 +9,5 @@ target 'ListPage' do
 pod ‘Alamofire’
 pod ‘AlamofireObjectMapper’
 pod ‘ObjectMapper’
+pod 'SDWebImage', '~>3.8'
 end
