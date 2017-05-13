@@ -17,10 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        nav = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()as? UINavigationController
+        
+        //UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()as? UINavigationController
         
         let vc : UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
-        nav?.pushViewController(vc, animated: true)
+        nav = UINavigationController(rootViewController: vc)
+        
         self.window!.rootViewController = nav
         
         return true

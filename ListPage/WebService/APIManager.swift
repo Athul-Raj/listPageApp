@@ -14,7 +14,7 @@ class APIManager: NSObject {
 
     
     static func fetchAllRooms(with pagenumber:String!, and filter:String, completion: @escaping ([String:Any]?) -> Void) {
-        print(API.listFetchBaseURL+"\(pagenumber!)" + filter)
+        //print(API.listFetchBaseURL+"\(pagenumber!)" + filter)
         Alamofire.request(
             
             URL(string: API.listFetchBaseURL+"\(pagenumber!)" + filter)!,

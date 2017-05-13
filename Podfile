@@ -10,4 +10,5 @@ pod ‘Alamofire’
 pod ‘AlamofireObjectMapper’
 pod ‘ObjectMapper’
 pod 'SDWebImage', '~>3.8'
+pod 'PKHUD', '~> 4.0'
 end

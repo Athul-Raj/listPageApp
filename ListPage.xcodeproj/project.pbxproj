@@ -16,8 +16,6 @@
 		C46D8E7A1EC339AA00264327 /* HomeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D8E781EC339AA00264327 /* HomeListTableViewCell.swift */; };
 		C46D8E7B1EC339AA00264327 /* HomeListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46D8E791EC339AA00264327 /* HomeListTableViewCell.xib */; };
 		C46D8E7D1EC33F2B00264327 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D8E7C1EC33F2B00264327 /* FilterViewController.swift */; };
-		C46D8E811EC34CFC00264327 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D8E7F1EC34CFC00264327 /* CustomNavigationView.swift */; };
-		C46D8E821EC34CFC00264327 /* CustomNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46D8E801EC34CFC00264327 /* CustomNavigationView.xib */; };
 		C46D8E861EC353EA00264327 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D8E851EC353EA00264327 /* Utilities.swift */; };
 		C46D8E8A1EC3551600264327 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D8E891EC3551600264327 /* BaseViewController.swift */; };
 		C46D8E901EC3596000264327 /* Brix Sans Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C46D8E8C1EC3596000264327 /* Brix Sans Black.ttf */; };
@@ -48,8 +46,6 @@
 		C46D8E781EC339AA00264327 /* HomeListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListTableViewCell.swift; sourceTree = "<group>"; };
 		C46D8E791EC339AA00264327 /* HomeListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeListTableViewCell.xib; sourceTree = "<group>"; };
 		C46D8E7C1EC33F2B00264327 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		C46D8E7F1EC34CFC00264327 /* CustomNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
-		C46D8E801EC34CFC00264327 /* CustomNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomNavigationView.xib; sourceTree = "<group>"; };
 		C46D8E851EC353EA00264327 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C46D8E891EC3551600264327 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C46D8E8C1EC3596000264327 /* Brix Sans Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brix Sans Black.ttf"; sourceTree = "<group>"; };
@@ -136,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				C49A60C41EC5B3CA00C02F00 /* RadioButton */,
-				C46D8E7E1EC34CBA00264327 /* NavigationBar */,
 				C46D8E771EC3398F00264327 /* TableViewCells */,
 			);
 			path = Views;
@@ -149,15 +144,6 @@
 				C46D8E791EC339AA00264327 /* HomeListTableViewCell.xib */,
 			);
 			path = TableViewCells;
-			sourceTree = "<group>";
-		};
-		C46D8E7E1EC34CBA00264327 /* NavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				C46D8E7F1EC34CFC00264327 /* CustomNavigationView.swift */,
-				C46D8E801EC34CFC00264327 /* CustomNavigationView.xib */,
-			);
-			path = NavigationBar;
 			sourceTree = "<group>";
 		};
 		C46D8E831EC3538D00264327 /* SupportFiles */ = {
@@ -293,7 +279,6 @@
 				C46D8E671EC329DA00264327 /* Assets.xcassets in Resources */,
 				C46D8E931EC3596000264327 /* Brix Sans ExtraLight.ttf in Resources */,
 				C46D8E7B1EC339AA00264327 /* HomeListTableViewCell.xib in Resources */,
-				C46D8E821EC34CFC00264327 /* CustomNavigationView.xib in Resources */,
 				C46D8E651EC329DA00264327 /* Main.storyboard in Resources */,
 				C46D8E911EC3596000264327 /* Brix Sans Bold.ttf in Resources */,
 				C46D8E921EC3596000264327 /* Brix Sans ExtraLight Italic.ttf in Resources */,
@@ -360,7 +345,6 @@
 				C46D8E861EC353EA00264327 /* Utilities.swift in Sources */,
 				C46D8E7A1EC339AA00264327 /* HomeListTableViewCell.swift in Sources */,
 				C46D8E9B1EC4363D00264327 /* ListResponseModel.swift in Sources */,
-				C46D8E811EC34CFC00264327 /* CustomNavigationView.swift in Sources */,
 				C49A60C81EC5BB0D00C02F00 /* Constants.swift in Sources */,
 				C49A60BE1EC46A0B00C02F00 /* DataModel.swift in Sources */,
 				C49A60BA1EC4692000C02F00 /* BaseMappabbleModel.swift in Sources */,

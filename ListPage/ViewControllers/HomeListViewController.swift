@@ -9,6 +9,7 @@
 import UIKit
 import ObjectMapper
 import SDWebImage
+import PKHUD
 
 class HomeListViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -22,17 +23,17 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
     var filterURL = ""
     
     var modelDataArray : [DataModel] = []
-    
-    var navigationSubView = CustomNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: 320.0 , height: 75))
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.InitialSetUp()
         self.listTableView.register(UINib(nibName: "HomeListTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeListTableViewCell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.setupNavigationController()
-        self.InitialSetUp()
+        self.title = "Properties near me"
+        listTableView.setContentOffset(CGPoint.zero, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,31 +74,17 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
         if allPhoto.count > 0{
             for i in (0...allPhoto.count - 1){
                 if allPhoto[i].displayPic{
-                    var urlFilterForImage = allPhoto[i].imagesMap?.thumbnail!
+                    var urlFilterForImage = allPhoto[i].imagesMap?.medium!
                     if let range = urlFilterForImage?.range(of: "_") {
                         let firstPart = urlFilterForImage?[(urlFilterForImage?.startIndex)!..<range.lowerBound]
                         urlFilterForImage = firstPart! + "/" + urlFilterForImage!
                     }
-
-                    
                     let url = URL(string: (API.imageFetchBaseURL + urlFilterForImage!))
-                    //DispatchQueue.global().async {
-                        do{
-                            let data = try Data(contentsOf: url!)
-                            //DispatchQueue.main.async {
-                                //cell.propertyImage.
-                                //cell.propertyImage.image = UIImage(data: data)
                                 
-                                cell.propertyImage.sd_setImage(with: url, placeholderImage: UIImage(named: "noImageIcon"))
-
-                            //}
-                        }catch{
-                            //  break
-                        //}
-                    }
+                    cell.propertyImage.sd_setImage(with: url, placeholderImage: UIImage(named: "noImageIcon"))
                     break
                 }else{
-                    cell.propertyImage.image = UIImage(named:"noImageIcon");
+                    cell.propertyImage.image = #imageLiteral(resourceName: "noImageIcon")
                 }
             }
         }
@@ -105,7 +92,6 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
         if indexPath.row == self.numberOfProperties - 1 && self.currentPageNumber < Int(self.maximumPages) {
             if self.numberOfProperties <= totalNumberOfProperties{
                 currentPageNumber! += 1
-                //print("Total number of Properties:\(self.totalNumberOfProperties)")
                 self.loadProperty()
             }
         }
@@ -121,9 +107,13 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     //MARK: - Local Methods
     func loadProperty(){
+        
+        PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
+        PKHUD.sharedHUD.show()
+        
         APIManager.fetchAllRooms(with: "\(currentPageNumber!)", and: filterURL) { (responseData: [String:Any]?) in
             if responseData == nil{
-                
+                PKHUD.sharedHUD.hide(afterDelay: 1.0)
             }else{
                 //print (responseData!)
                 let parsedModelData = Mapper<ListResponseModel>().map(JSONObject: responseData!)
@@ -131,16 +121,32 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
                 self.modelDataArray = self.modelDataArray + (parsedModelData?.dataArray)!
                 
                 self.totalNumberOfProperties! = (parsedModelData?.otherParams?.totalCount)!
-                self.maximumPages = ceil(Float((parsedModelData?.otherParams?.totalCount)!)/Float((parsedModelData?.otherParams?.count)!))
                 
-                if (self.currentPageNumber == Int(self.maximumPages)){
-                    self.numberOfProperties! = self.totalNumberOfProperties
+                if (parsedModelData?.otherParams?.totalCount)! > 0{
+                    self.maximumPages = ceil(Float((parsedModelData?.otherParams?.totalCount)!)/Float((parsedModelData?.otherParams?.count)!))
+                    
+                    if (self.currentPageNumber == Int(self.maximumPages)){
+                        self.numberOfProperties! = self.totalNumberOfProperties
+                    }else{
+                        self.numberOfProperties! += (parsedModelData?.otherParams?.count)!
+                    }
+                    DispatchQueue.main.async{
+                        self.listTableView.reloadData()
+                        PKHUD.sharedHUD.hide(afterDelay: 0.1)
+                    }
                 }else{
-                    self.numberOfProperties! += (parsedModelData?.otherParams?.count)!
-                }
-                DispatchQueue.main.async{
                     self.listTableView.reloadData()
+                    let alert = UIAlertController(title: "Alert", message: "Search Empty", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.default, handler: { action in
+                        self.performSegue(withIdentifier: "toFilterSegue", sender: self)
+                    }))
+                    
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
                 }
+                
                 //self.listTableView.reloadInputViews()
             }
         }
@@ -148,7 +154,6 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     func InitialSetUp(){
         self.loadProperty()
-        listTableView.setContentOffset(CGPoint.zero, animated: false)
         currentPageNumber = 1
         numberOfProperties = 0
         totalNumberOfProperties = 0

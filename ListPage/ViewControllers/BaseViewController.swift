@@ -24,6 +24,9 @@ class BaseViewController: UIViewController {
     func setupNavigationController(){
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.barTintColor = Utilities.uicolorFromHex(rgbValue: UInt32(ColorHex.pinkColor))
+        self.navigationController?.navigationBar.backItem?.title = ""
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
     }
     
 

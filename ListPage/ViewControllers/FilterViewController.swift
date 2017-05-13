@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import PKHUD
 
 class FilterViewController: UIViewController {
     @IBOutlet var applyButton: UIButton!
@@ -26,6 +27,8 @@ class FilterViewController: UIViewController {
     @IBOutlet var furnishedButton: RadioButton!
     @IBOutlet var semiFurnishedButton: RadioButton!
     
+    @IBOutlet var refreshButton: UIButton!
+    
     var filterValuePassed: ((String) -> Void)!
 
     override func viewDidLoad() {
@@ -34,6 +37,9 @@ class FilterViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        refreshButton.imageView?.image = refreshButton.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        refreshButton.imageView?.tintColor = UIColor.white
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,7 +58,6 @@ class FilterViewController: UIViewController {
     
     @IBAction func applyButtonTapped(_ sender: Any) {
         self.loadProper()
-        self.refresh(sender)
     }
     
     @IBAction func closeFilterViewTapped(_ sender: Any) {
@@ -86,7 +91,7 @@ class FilterViewController: UIViewController {
         var bhkURLSub : String = "&type="
         
         if oneRkButton.isSelected{
-            filterBHK.append("RK")
+            filterBHK.append("RK1")
         }
         if oneBhkButton.isSelected{
             filterBHK.append("BHK1")
@@ -175,10 +180,13 @@ class FilterViewController: UIViewController {
     
     func loadProper(){
         
+        PKHUD.sharedHUD.contentView = PKHUDSystemActivityIndicatorView()
+        PKHUD.sharedHUD.show()
+        
         let filterURL = getURLSubpartforBHK() + getURLSubpartforAppartment() + getURLSubpartforFurniture()
         APIManager.fetchAllRooms(with: "1", and: filterURL) { (responseData: [String:Any]?) in
             if responseData == nil{
-                
+                PKHUD.sharedHUD.hide()
             }else{
                 //print (responseData!)
                 let parsedModelData = Mapper<ListResponseModel>().map(JSONObject: responseData!)
@@ -187,16 +195,23 @@ class FilterViewController: UIViewController {
                 let objectRefHomeListVC:HomeListViewController = appDelegate.nav!.viewControllers.last as! HomeListViewController
                 
                 objectRefHomeListVC.modelDataArray = (parsedModelData?.dataArray)!
-                
                 objectRefHomeListVC.totalNumberOfProperties! = (parsedModelData?.otherParams?.totalCount)!
-                objectRefHomeListVC.maximumPages = ceil(Float((parsedModelData?.otherParams?.totalCount)!)/Float((parsedModelData?.otherParams?.count)!))
                 
-                if (1 == Int(objectRefHomeListVC.maximumPages)){
-                    objectRefHomeListVC.numberOfProperties! = objectRefHomeListVC.totalNumberOfProperties
+                if (parsedModelData?.otherParams?.totalCount)! > 0{
+                    
+                    objectRefHomeListVC.maximumPages = ceil(Float((parsedModelData?.otherParams?.totalCount)!)/Float((parsedModelData?.otherParams?.count)!))
+                    
+                    if (1 == Int(objectRefHomeListVC.maximumPages)){
+                        objectRefHomeListVC.numberOfProperties! = objectRefHomeListVC.totalNumberOfProperties
+                    }else{
+                        objectRefHomeListVC.numberOfProperties! += (parsedModelData?.otherParams?.count)!
+                    }
                 }else{
-                    objectRefHomeListVC.numberOfProperties! += (parsedModelData?.otherParams?.count)!
+                    objectRefHomeListVC.numberOfProperties = 0;
                 }
                 self.filterValuePassed(filterURL)
+                PKHUD.sharedHUD.hide()
+                self.refresh(self)
                 self.dismiss(animated: true, completion: nil)
                 
                 //self.listTableView.reloadInputViews()

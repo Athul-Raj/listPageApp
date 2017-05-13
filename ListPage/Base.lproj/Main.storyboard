@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f7X-FI-fpX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U7u-2u-LTd">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,12 +32,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRm-dZ-RyQ">
-                                <rect key="frame" x="0.0" y="338" width="414" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="pCE-am-LoT"/>
-                                </constraints>
-                                <state key="normal" title="HOME"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRm-dZ-RyQ">
+                                <rect key="frame" x="62" y="283" width="290" height="170"/>
+                                <state key="normal" image="homeIcon"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="oCF-I9-gtn"/>
                                 </connections>
@@ -45,7 +42,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kRm-dZ-RyQ" firstAttribute="width" secondItem="HaO-wB-2PY" secondAttribute="width" id="IXy-vs-Nmu"/>
+                            <constraint firstItem="kRm-dZ-RyQ" firstAttribute="width" secondItem="HaO-wB-2PY" secondAttribute="width" multiplier="0.7" id="IXy-vs-Nmu"/>
                             <constraint firstItem="kRm-dZ-RyQ" firstAttribute="centerY" secondItem="HaO-wB-2PY" secondAttribute="centerY" id="P34-1e-82j"/>
                             <constraint firstItem="kRm-dZ-RyQ" firstAttribute="centerX" secondItem="HaO-wB-2PY" secondAttribute="centerX" id="siE-HS-ha2"/>
                         </constraints>
@@ -55,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfC-gQ-7Q4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1452" y="-519.49025487256381"/>
+            <point key="canvasLocation" x="441" y="-567"/>
         </scene>
         <!--Properties near me-->
         <scene sceneID="tne-QT-ifu">
@@ -88,7 +85,7 @@
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="WWn-TY-ZzM" kind="presentation" id="0i7-MT-aGg"/>
+                                    <segue destination="WWn-TY-ZzM" kind="presentation" identifier="toFilterSegue" id="0i7-MT-aGg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -109,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2342" y="-520"/>
+            <point key="canvasLocation" x="1590" y="-567"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="mBB-BO-w9Y">
@@ -126,30 +123,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mze-JC-TLl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNc-BF-WPa">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNc-BF-WPa">
                                         <rect key="frame" x="16" y="17" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tNc-BF-WPa" secondAttribute="height" multiplier="1:1" id="HeL-mJ-3aE"/>
                                             <constraint firstAttribute="width" constant="35" id="Leo-IY-nsk"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" image="refreshIcon"/>
                                         <connections>
                                             <action selector="refresh:" destination="WWn-TY-ZzM" eventType="touchUpInside" id="U3d-TG-ZDN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26R-LP-6Vk">
-                                        <rect key="frame" x="363" y="17" width="35" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26R-LP-6Vk">
+                                        <rect key="frame" x="363" y="17.333333333333329" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="26R-LP-6Vk" secondAttribute="height" multiplier="1:1" id="18A-Yo-oLG"/>
                                             <constraint firstAttribute="width" constant="35" id="BUX-1Z-WPa"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" image="closeIcon"/>
                                         <connections>
                                             <action selector="closeFilterViewTapped:" destination="WWn-TY-ZzM" eventType="touchUpInside" id="IDo-hT-oO9"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTER BY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YS1-7M-McZ">
-                                        <rect key="frame" x="164" y="24.666666666666664" width="87" height="19.999999999999993"/>
+                                        <rect key="frame" x="164" y="24.333333333333336" width="87" height="20.000000000000007"/>
                                         <fontDescription key="fontDescription" name="BrixSansBold" family="BrixSansBold" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -453,6 +450,7 @@
                         <outlet property="individualHouseButton" destination="sP2-Kh-AEb" id="PRT-5B-hJX"/>
                         <outlet property="oneBhkButton" destination="auk-wR-nRH" id="40V-Jm-F7F"/>
                         <outlet property="oneRkButton" destination="Mgc-DG-qU5" id="Ddd-b0-gln"/>
+                        <outlet property="refreshButton" destination="tNc-BF-WPa" id="zGM-U8-8Bl"/>
                         <outlet property="semiFurnishedButton" destination="Gyh-hU-7bL" id="NaL-JM-9ff"/>
                         <outlet property="threeBhkButton" destination="RZB-kf-U6a" id="KvT-o7-55w"/>
                         <outlet property="twoBhkButton" destination="AlV-Mk-946" id="goN-bX-lsD"/>
@@ -460,28 +458,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysO-xl-6UT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2339.130434782609" y="216.03260869565219"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="e01-D5-X18">
-            <objects>
-                <navigationController storyboardIdentifier="ß" automaticallyAdjustsScrollViewInsets="NO" id="f7X-FI-fpX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ovr-xg-WcX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="U7u-2u-LTd" kind="relationship" relationship="rootViewController" id="mTf-j2-SkU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rNn-Na-okB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="512.79999999999995" y="-519.49025487256381"/>
+            <point key="canvasLocation" x="1590" y="235"/>
         </scene>
     </scenes>
     <resources>
+        <image name="closeIcon" width="256" height="256"/>
         <image name="filterIcon" width="42" height="42"/>
+        <image name="homeIcon" width="170" height="170"/>
+        <image name="refreshIcon" width="64" height="64"/>
     </resources>
 </document>
