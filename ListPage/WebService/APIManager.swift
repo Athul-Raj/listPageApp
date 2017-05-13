@@ -9,14 +9,14 @@
 import UIKit
 import Alamofire
 
+
 class APIManager: NSObject {
 
     
     static func fetchAllRooms(with pagenumber:String, and filter:String, completion: @escaping ([String:Any]?) -> Void) {
         Alamofire.request(
             
-            
-            URL(string: "http://www.nobroker.in/api/v1/property/filter/region/ChIJLfyY2E4UrjsRVq4AjI7zgRY/?lat_lng=12.9279232,77.6271078&rent=0,500000&travelTime=30&pageNo=\(pagenumber)" + filter)!,
+            URL(string: API.listFetchBaseURL+"\(pagenumber)" + filter)!,
             method: .get,
             parameters: ["include_docs": "true"])
             .validate()
@@ -33,11 +33,7 @@ class APIManager: NSObject {
                     completion(nil)
                     return
                 }
-                /*
-                 let rooms = rows.flatMap({ (roomDict) -> RemoteRoom? in
-                 return RemoteRoom(jsonData: roomDict)
-                 })*/
-                
+
                 print(value["status"]!)
                 completion(value)
         }

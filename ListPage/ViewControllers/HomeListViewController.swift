@@ -20,6 +20,7 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     var filterURL = ""
     
+    var modelDataArray : [DataModel] = []
     
     var navigationSubView = CustomNavigationView.init(frame: CGRect.init(x: 0, y: 0, width: 320.0 , height: 75))
 
@@ -52,8 +53,75 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell:HomeListTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "HomeListTableViewCell") as? HomeListTableViewCell)!
-        cell.textLabel?.text = "First Word"
+
         
+        let propertyModel = modelDataArray[indexPath.row]
+        cell.propertyTitle.text = propertyModel.propertyTitle
+        cell.propertySubTitle.text = propertyModel.secondaryTitle
+        cell.sqFeetLabel.text = "\(propertyModel.propertySize!) Sq.ft"
+        cell.furnitLabel.text = propertyModel.furnishingDesc! + " Furnished"
+        cell.costLabel.text = "₹ \(propertyModel.rent!)"
+        if propertyModel.bathroom == 1{
+            cell.bathroomLabel.text = "Single Bathroom";
+        }else{
+            cell.bathroomLabel.text = "\(propertyModel.bathroom!) Bathrooms";
+        }
+        
+        
+        let allPhoto = propertyModel.propertyAllImages!
+        for i in (0...allPhoto.count - 1){
+            if allPhoto[i].displayPic{
+                
+                var urlFilterForImage = allPhoto[i].imagesMap?.original!
+                if let range = urlFilterForImage?.range(of: "_") {
+                    let firstPart = urlFilterForImage?[(urlFilterForImage?.startIndex)!..<range.lowerBound]
+                    urlFilterForImage = firstPart! + "/" + urlFilterForImage!
+                    print(urlFilterForImage!) // print Hello
+                }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                let url = URL(string: (API.imageFetchBaseURL + urlFilterForImage!))
+                DispatchQueue.global().async {
+                    do{
+                        let data = try Data(contentsOf: url!)
+                        DispatchQueue.main.async {
+                            cell.propertyImage.image = UIImage(data: data)
+                            
+                        }
+                    }catch{
+                      //  break
+                    }
+                }
+                break
+            }
+        }
+        
+        /*
+         
+         
+         If key of image is ff8081815848207b01584832ea1d012c_76516_original then you have to access image like
+         
+         
+         http://d3snwcirvb4r88.cloudfront.net/images/ff8081815848207b01584832ea1d012c/ff8081815848207b01584832ea1d012c_76516_original.jpg
+        let url = URL(string: modelDataArray[indexPath.row].)
+        
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            DispatchQueue.main.async {
+                imageView.image = UIImage(data: data!)
+            }
+        }*/
+        //cell.imageView?.image = UIImage
+        
+        print(indexPath.row)
         if indexPath.row == self.numberOfProperties - 1 && self.currentPageNumber < Int(self.maximumPages) {
             if self.numberOfProperties <= totalNumberOfProperties{
                 currentPageNumber! += 1
@@ -71,7 +139,7 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
 
     
     
-    //MARK: - Local Mrthods
+    //MARK: - Local Methods
     func loadProperty(){
         print("Current page number:\(currentPageNumber)")
         APIManager.fetchAllRooms(with: "\(currentPageNumber)", and: filterURL) { (responseData: [String:Any]?) in
@@ -80,6 +148,8 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
             }else{
                 //print (responseData!)
                 let parsedModelData = Mapper<ListResponseModel>().map(JSONObject: responseData!)
+        
+                self.modelDataArray = self.modelDataArray + (parsedModelData?.dataArray)!
                 
                 self.totalNumberOfProperties! = (parsedModelData?.otherParams?.totalCount)!
                 self.maximumPages = ceil(Float((parsedModelData?.otherParams?.totalCount)!)/Float((parsedModelData?.otherParams?.count)!))

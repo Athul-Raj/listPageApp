@@ -10,6 +10,13 @@ import UIKit
 
 class HomeListTableViewCell: UITableViewCell {
 
+    @IBOutlet var propertyTitle: UILabel!
+    @IBOutlet var propertySubTitle: UILabel!
+    @IBOutlet var costLabel: UILabel!
+    @IBOutlet var furnitLabel: UILabel!
+    @IBOutlet var sqFeetLabel: UILabel!
+    @IBOutlet var bathroomLabel: UILabel!
+    @IBOutlet var propertyImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
