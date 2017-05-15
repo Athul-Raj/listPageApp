@@ -33,7 +33,9 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         self.setupNavigationController()
         self.title = "Properties near me"
-        listTableView.setContentOffset(CGPoint.zero, animated: false)
+        if (numberOfProperties > 0){
+            listTableView.setContentOffset(CGPoint.zero, animated: false)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,7 +90,6 @@ class HomeListViewController: BaseViewController, UITableViewDelegate, UITableVi
                 }
             }
         }
-        
         if indexPath.row == self.numberOfProperties - 1 && self.currentPageNumber < Int(self.maximumPages) {
             if self.numberOfProperties <= totalNumberOfProperties{
                 currentPageNumber! += 1

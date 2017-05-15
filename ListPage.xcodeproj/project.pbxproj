@@ -247,6 +247,7 @@
 				TargetAttributes = {
 					C46D8E5B1EC329D900264327 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = D4ECDF9Q4V;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -400,7 +401,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: DIGI STUDIO (NKDUYK34NH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: DIGI STUDIO (NKDUYK34NH)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -449,7 +451,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: DIGI STUDIO (NKDUYK34NH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: DIGI STUDIO (NKDUYK34NH)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -475,11 +478,13 @@
 			baseConfigurationReference = 4EE8BD8010705EB78A78838E /* Pods-ListPage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = D4ECDF9Q4V;
 				INFOPLIST_FILE = ListPage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nobrokerAssignment.ListPage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dei.sands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3af15480-4faa-4f42-9c45-a6400376c03b";
+				PROVISIONING_PROFILE_SPECIFIER = SandsChina_Photo_development_profile_may03;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -489,11 +494,13 @@
 			baseConfigurationReference = A1F4997542617E8F7EEF6CF4 /* Pods-ListPage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = D4ECDF9Q4V;
 				INFOPLIST_FILE = ListPage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nobrokerAssignment.ListPage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dei.sands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3af15480-4faa-4f42-9c45-a6400376c03b";
+				PROVISIONING_PROFILE_SPECIFIER = SandsChina_Photo_development_profile_may03;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

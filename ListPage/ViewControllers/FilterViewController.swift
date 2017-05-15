@@ -40,6 +40,7 @@ class FilterViewController: UIViewController {
         
         refreshButton.imageView?.image = refreshButton.imageView?.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         refreshButton.imageView?.tintColor = UIColor.white
+        refreshButton.setImage(refreshButton.imageView?.image, for: .selected)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -196,6 +197,7 @@ class FilterViewController: UIViewController {
                 
                 objectRefHomeListVC.modelDataArray = (parsedModelData?.dataArray)!
                 objectRefHomeListVC.totalNumberOfProperties! = (parsedModelData?.otherParams?.totalCount)!
+                objectRefHomeListVC.currentPageNumber = 1
                 
                 if (parsedModelData?.otherParams?.totalCount)! > 0{
                     
@@ -204,10 +206,12 @@ class FilterViewController: UIViewController {
                     if (1 == Int(objectRefHomeListVC.maximumPages)){
                         objectRefHomeListVC.numberOfProperties! = objectRefHomeListVC.totalNumberOfProperties
                     }else{
-                        objectRefHomeListVC.numberOfProperties! += (parsedModelData?.otherParams?.count)!
+                        objectRefHomeListVC.numberOfProperties! = (parsedModelData?.otherParams?.count)!
                     }
                 }else{
                     objectRefHomeListVC.numberOfProperties = 0;
+                    objectRefHomeListVC.maximumPages = 0;
+                    objectRefHomeListVC.currentPageNumber = 1
                 }
                 self.filterValuePassed(filterURL)
                 PKHUD.sharedHUD.hide()
